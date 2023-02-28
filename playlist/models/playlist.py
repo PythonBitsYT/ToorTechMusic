@@ -13,7 +13,7 @@ class Playlist(models.Model):
     playlist_id = models.UUIDField(default=uuid.uuid4)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    tracks = models.ManyToManyField(Track, through="PlaylistTrack", related_name="playlist_tracks")
+    tracks = models.ManyToManyField('Track', through="PlaylistTrack", related_name="playlist_tracks")
 
     # Update fields
     created_at  = models.DateTimeField(auto_now_add=True)
